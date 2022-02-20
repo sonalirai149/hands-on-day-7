@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+
+import java.util.Comparator; 
+
+public class CompareExperience implements Comparator{
+
+	public int compare(Object o1,Object o2){  
+		DeveloperQues1 s1=(DeveloperQues1)o1;  
+		DeveloperQues1 s2=(DeveloperQues1)o2;  
+		  
+		if(s1.experience==s2.experience)  
+		return 0;  
+		else if(s1.experience>s2.experience)  
+		return 1;  
+		else  
+		return -1;  
+		}  
+       
+	}
+public class DevloperWithMain {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Developer> developer = new ArrayList<>();
+		developer.add(new Developer(1234567,"Sha;ini",5,200000));
+		developer.add(new Developer(1234789,"rakesh ",5,200562));
+		developer.add(new Developer(1234890,"sapna",6,202541));
+		developer.add(new Developer(1234400,"pragya",3,232021));
+		developer.add(new Developer(1234211,"priti ",4,58456));
+		developer.add(new Developer(1234500,"tia",2,652152));
+		developer.add(new Developer(1234000,"neelima",01,875552));
+		developer.add(new Developer(1234900,"Adarsh ",10,900000));
+		
+		Collections.sort(developer, new DevpExpComp()); 
+		
+		Collections.sort(developer, new DevNameComp());
+		
+		Developer maxSal = Collections.max(developer, new DevMaxSal());
+		
+		
+		
+		System.out.println("Expr  Name   ID    Salary ");
+		System.out.println();
+		Iterator <Developer> it = developer.iterator();
+		while(it.hasNext()) {
+			Developer st = it.next();
+			System.out.println(st.devexp+"   "+st.devName+"  "+st.devId+"   "+st.devSal);
+		}
+		
+		System.out.println("max Salary is "+ maxSal.devSal);
+	}
+
+}
